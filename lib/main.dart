@@ -26,6 +26,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center (
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('Você clicou $contador vezes'),
               Text(mensagem),
