@@ -14,6 +14,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int contador = 0;
   String mensagem = '';
+  final limite = 10;
 
   @override
   Widget build(BuildContext context) {
@@ -29,16 +30,18 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('Você clicou $contador vezes'),
-              Text(mensagem),
+              if(contador >= limite)
+              Text(
+                'Limite atingido!',
+                style: TextStyle(color: Colors.red),
+              ),
             ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: (){
             setState(() {
-              if(contador >= 10){
-                mensagem = 'Você excedeu as 10 vezes';
-              } else {
+              if(contador <10){
                 contador++;  
               }
             });
